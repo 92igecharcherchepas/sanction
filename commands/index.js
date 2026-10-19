@@ -1,0 +1,24 @@
+const { PermissionFlagsBits, SlashCommandBuilder } = require('discord.js');
+
+const defaultPermissionLevels = { tempmute: 2, unmute: 2, ban: 4, unban: 4, baninfo: 1, sanctionlist: 1, mutelist: 1, perms: 1, helpall: 1, delsanction: 6 };
+
+const commands = [
+	new SlashCommandBuilder().setName('tempmute').setDescription('Gère les mutes temporaires').addSubcommand((s) => s.setName('appliquer').setDescription('Ouvre les presets de mute').addUserOption((o) => o.setName('membre').setDescription('Membre à muter').setRequired(true))).addSubcommand((s) => s.setName('modif').setDescription('Modifie les presets de mute')).setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers),
+	new SlashCommandBuilder().setName('unmute').setDescription('Retire la sourdine d’un membre').addUserOption((o) => o.setName('membre').setDescription('Membre à démuter').setRequired(true)).addStringOption((o) => o.setName('raison').setDescription('Raison').setMaxLength(500)),
+	new SlashCommandBuilder().setName('ban').setDescription('Bannit un membre du serveur').addUserOption((o) => o.setName('membre').setDescription('Membre à bannir').setRequired(true)).addStringOption((o) => o.setName('raison').setDescription('Raison').setMaxLength(500)),
+	new SlashCommandBuilder().setName('unban').setDescription('Débannit un utilisateur').addStringOption((o) => o.setName('utilisateur').setDescription('Identifiant Discord').setRequired(true)).addStringOption((o) => o.setName('raison').setDescription('Raison').setMaxLength(500)),
+	new SlashCommandBuilder().setName('baninfo').setDescription('Affiche les informations d’un bannissement').addStringOption((o) => o.setName('utilisateur').setDescription('Identifiant Discord').setRequired(true)),
+	new SlashCommandBuilder().setName('sanctionlist').setDescription('Affiche les sanctions enregistrées'),
+	new SlashCommandBuilder().setName('mutelist').setDescription('Affiche les sourdines actives'),
+	new SlashCommandBuilder().setName('perms').setDescription('Affiche les rôles de chaque niveau de permission').addStringOption((o) => o.setName('niveau').setDescription('Niveau à consulter').addChoices(...Array.from({ length: 9 }, (_, i) => ({ name: `perm${i + 1}`, value: String(i + 1) })))),
+	new SlashCommandBuilder().setName('helpall').setDescription('Affiche les commandes par niveau de permission'),
+	new SlashCommandBuilder().setName('panel').setDescription('Ouvre le panneau de configuration du bot'),
+	new SlashCommandBuilder().setName('sys').setDescription('Gère les sys du bot').addSubcommand((s) => s.setName('add').setDescription('Ajoute un sys').addUserOption((o) => o.setName('utilisateur').setDescription('Utilisateur à ajouter').setRequired(true))).addSubcommand((s) => s.setName('del').setDescription('Retire un sys').addUserOption((o) => o.setName('utilisateur').setDescription('Utilisateur à retirer').setRequired(true))).addSubcommand((s) => s.setName('list').setDescription('Affiche les sys du bot')),
+	new SlashCommandBuilder().setName('delsanction').setDescription('Supprime une sanction de l’historique').addStringOption((o) => o.setName('id').setDescription('Identifiant').setRequired(true)),
+	new SlashCommandBuilder().setName('set').setDescription('Configure le niveau requis').addSubcommand((s) => s.setName('perm').setDescription('Définit une permission minimale').addStringOption((o) => o.setName('commande').setDescription('Commande').setRequired(true).addChoices(...Object.keys(defaultPermissionLevels).map((name) => ({ name: `/${name}`, value: name })))).addStringOption((o) => o.setName('niveau').setDescription('Niveau minimum').setRequired(true).addChoices(...Array.from({ length: 9 }, (_, i) => ({ name: `perm${i + 1}`, value: String(i + 1) }))))),
+	new SlashCommandBuilder().setName('del').setDescription('Supprime une configuration').addSubcommand((s) => s.setName('perm').setDescription('Remet une commande à sa permission par défaut').addStringOption((o) => o.setName('commande').setDescription('Commande à réinitialiser').setRequired(true).addChoices(...Object.keys(defaultPermissionLevels).map((name) => ({ name: `/${name}`, value: name }))))),
+	new SlashCommandBuilder().setName('autolog').setDescription('Gère les salons de logs automatiques').addStringOption((o) => o.setName('action').setDescription('Action à effectuer').addChoices({ name: 'Activer', value: 'activer' }, { name: 'Désactiver', value: 'desactiver' }, { name: 'Configurer le serveur de logs', value: 'configurer' })).addStringOption((o) => o.setName('serveur_id').setDescription('ID du serveur dédié aux logs')),
+].map((command) => command.toJSON());
+
+module.exports = commands;
+module.exports.defaultPermissionLevels = defaultPermissionLevels;

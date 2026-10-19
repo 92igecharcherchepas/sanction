@@ -1,0 +1,118 @@
+{
+  "sanctions": [
+    {
+      "id": "S-MT60GLZ2",
+      "type": "TEMPMUTE",
+      "userId": "1519719901390966857",
+      "moderatorId": "1530341872051027998",
+      "reason": "grave",
+      "createdAt": "2026-08-23T16:17:49.886Z",
+      "expiresAt": "2026-08-23T16:52:49.886Z"
+    },
+    {
+      "id": "S-MT60H49S",
+      "type": "UNMUTE",
+      "userId": "1519719901390966857",
+      "moderatorId": "1530341872051027998",
+      "reason": "test",
+      "createdAt": "2026-08-23T16:18:13.600Z"
+    },
+    {
+      "id": "S-MT94J30I",
+      "type": "TEMPMUTE",
+      "userId": "1496607875848601794",
+      "moderatorId": "1530341872051027998",
+      "reason": "grave",
+      "createdAt": "2026-08-25T20:35:02.274Z",
+      "expiresAt": "2026-08-25T21:10:02.274Z"
+    },
+    {
+      "id": "S-MT94JAXF",
+      "type": "UNMUTE",
+      "userId": "1496607875848601794",
+      "moderatorId": "1530341872051027998",
+      "reason": "Aucune raison indiquée",
+      "createdAt": "2026-08-25T20:35:12.531Z"
+    },
+    {
+      "id": "S-MT9706LY",
+      "type": "BAN",
+      "userId": "1496607875848601794",
+      "moderatorId": "1530341872051027998",
+      "reason": "test",
+      "createdAt": "2026-08-25T21:44:19.318Z"
+    },
+    {
+      "id": "S-MT973OYM",
+      "type": "UNBAN",
+      "userId": "1496607875848601794",
+      "moderatorId": "1530341872051027998",
+      "reason": "caca",
+      "createdAt": "2026-08-25T21:47:03.070Z"
+    }
+  ],
+  "permissions": {
+    "tempmute": 2,
+    "unmute": 4,
+    "ban": 7,
+    "unban": 7,
+    "baninfo": 6,
+    "sanctionlist": 5,
+    "mutelist": 4,
+    "perms": 1,
+    "helpall": 1,
+    "delsanction": 6
+  },
+  "permissionRoles": {},
+  "panelUsers": [
+    "580908079999352847",
+    "1496607875848601794",
+    "1507496113786195990"
+  ],
+  "tempMutePresets": {
+    "insulte": {
+      "label": "Insulte",
+      "duration": "35m",
+      "reason": "grave"
+    },
+    "harcelement": {
+      "label": "harcèlement",
+      "duration": "45m",
+      "reason": "harcèlement"
+    },
+    "discrimination": {
+      "label": "discrimination",
+      "duration": "20m",
+      "reason": "discrimination"
+    },
+    "insulte-grave-v-ol-famille-ect": {
+      "label": "insulte grave (v!ol, famille, ect…)",
+      "duration": "30m",
+      "reason": "insulte grave"
+    },
+    "menace": {
+      "label": "menace",
+      "duration": "25m",
+      "reason": "menace"
+    },
+    "troll": {
+      "label": "troll",
+      "duration": "10m",
+      "reason": "troll"
+    }
+  },
+  "autoLog": {
+    "enabled": true,
+    "sourceGuildId": "1539721335499128902",
+    "targetGuildId": "1541113271900307587",
+    "categoryId": "1541115324005621830",
+    "channels": {
+      "ban": "1541115324961792060",
+      "unban": "1541115325968420874",
+      "tempmute": "1541115326899421254",
+      "unmute": "1541115328292061214",
+      "sanctions": "1541115330770903080",
+      "systeme": "1541115332100358286"
+    }
+  }
+}
